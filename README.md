@@ -5,11 +5,6 @@
 
 A simple To-Do List built using HTML, CSS and JavaScript.
 
-## 🚀 Live Demo
-
-https://tanu506.github.io/todo---list/
-
-
 ## ✨ Features
 
 - Add tasks
