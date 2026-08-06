@@ -10,8 +10,8 @@ btns.forEach(function(btn){
    }else if(val == "DEL"){
      input.value = input.value.slice(0,-1);
    }else if(val == "="){
-    //  input.value = eval(input.value);
-    input.value = calculate(input.value);
+     input.value = eval(input.value);
+    // input.value = calculate(input.value);
    }else{
      input.value += val;
    }
@@ -19,31 +19,31 @@ btns.forEach(function(btn){
 })
 
 
-function calculate(expression) {
-    if (expression.includes("+")) {
-        let parts = expression.split("+");
-        return Number(parts[0]) + Number(parts[1]);
-    }
+// function calculate(expression) {
+//     if (expression.includes("+")) {
+//         let parts = expression.split("+");
+//         return Number(parts[0]) + Number(parts[1]);
+//     }
 
-    if (expression.includes("-")) {
-        let parts = expression.split("-");
-        return Number(parts[0]) - Number(parts[1]);
-    }
+//     if (expression.includes("-")) {
+//         let parts = expression.split("-");
+//         return Number(parts[0]) - Number(parts[1]);
+//     }
 
-    if (expression.includes("*")) {
-        let parts = expression.split("*");
-        return Number(parts[0]) * Number(parts[1]);
-    }
+//     if (expression.includes("*")) {
+//         let parts = expression.split("*");
+//         return Number(parts[0]) * Number(parts[1]);
+//     }
 
-    if (expression.includes("/")) {
-        let parts = expression.split("/");
-        return Number(parts[0]) / Number(parts[1]);
-    }
+//     if (expression.includes("/")) {
+//         let parts = expression.split("/");
+//         return Number(parts[0]) / Number(parts[1]);
+//     }
 
-    if (expression.includes("%")) {
-        let parts = expression.split("%");
-        return Number(parts[0]) % Number(parts[1]);
-    }
+//     if (expression.includes("%")) {
+//         let parts = expression.split("%");
+//         return Number(parts[0]) % Number(parts[1]);
+//     }
 
-    return expression;
-}
+//     return expression;
+// }
