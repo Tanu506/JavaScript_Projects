@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4facfe,#00f2fe);
+}
+
+.weather-app {
+    width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.weather-app h1 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#cityInput {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+#cityInput:focus {
+    border-color: #2196f3;
+}
+
+#searchBtn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #2196f3;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#searchBtn:hover {
+    background: #1976d2;
+}
+
+/* Error */
+
+#error {
+    color: crimson;
+    margin-bottom: 10px;
+}
+
+/* Weather Card */
+
+.weather-card {
+    padding: 20px;
+    background: #f7f9fc;
+    border-radius: 15px;
+}
+
+#city {
+    font-size: 28px;
+    color: #333;
+}
+
+.weather-icon {
+    font-size: 70px;
+    margin: 15px 0;
+}
+
+#temperature {
+    font-size: 45px;
+    color: #222;
+}
+
+#description {
+    margin: 10px 0 25px;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Details */
+
+.weather-details {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 10px;
+}
+
+.weather-details div {
+    padding: 12px;
+    background: white;
+    border-radius: 10px;
+}
+
+.weather-details span {
+    font-size: 25px;
+}
+
+.weather-details p {
+    margin: 5px 0;
+
+    font-size: 13px;
+    color: #777;
+}
+
+.weather-details strong {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Mobile */
+
+/* @media (max-width: 450px) {
+
+    .weather-app {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #searchBtn {
+        width: 100%;
+    }
+} */
