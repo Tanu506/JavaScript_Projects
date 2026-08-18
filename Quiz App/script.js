@@ -22,8 +22,8 @@ const questions = [
 
   {
     question: "Which tag is used to create a paragraph in HTML?",
-    options: ["h1", "p", "div", "span"],
-    answer: "p",
+    options: ["<h1>", "<p>", "<div>", "<span>"],
+    answer: "<p>",
   },
 ];
 
@@ -35,17 +35,17 @@ function showQuestion() {
   questionNumber.innerText = `Question ${currentQuestion + 1} / ${questions.length}`;
   progress.style.width = `${((currentQuestion + 1) * 100) / questions.length}%`;
   question.innerText = current.question;
-  options.innerHTML = `<button class="option">${current.options[0]}</button>
-                       <button class="option">${current.options[1]}</button>
-                       <button class="option">${current.options[2]}</button>
-                       <button class="option">${current.options[3]}</button>`;
-  //  options.innerHTML = "";
-  //  current.options.forEach(function(option){
-  //     const button = document.createElement('button');
-  //     button.classList.add("option");
-  //     button.innerText = option;
-  //     options.appendChild(button);
-  //  })
+//   options.innerHTML = `<button class="option">${current.options[0]}</button>
+//                        <button class="option">${current.options[1]}</button>
+//                        <button class="option">${current.options[2]}</button>
+//                        <button class="option">${current.options[3]}</button>`;
+   options.innerHTML = "";
+   current.options.forEach(function(option){
+      const button = document.createElement('button');
+      button.classList.add("option");
+      button.innerText = option;
+      options.appendChild(button);
+   })
 }
 
 showQuestion();
