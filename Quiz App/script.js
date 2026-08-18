@@ -6,6 +6,7 @@ const nextBtn = document.querySelector("#nextBtn");
 const scoreDisplay = document.querySelector("#score");
 const restartBtn = document.querySelector("#restartBtn");
 const result = document.querySelector("#result");
+const timer = document.querySelector("#timer");
 
 const questions = [
   {
@@ -25,10 +26,67 @@ const questions = [
     options: ["<h1>", "<p>", "<div>", "<span>"],
     answer: "<p>",
   },
+
+  {
+    question:
+      "Which keyword is used to declare a variable that cannot be reassigned?",
+    options: ["var", "let", "const", "static"],
+    answer: "const",
+  },
+
+  {
+    question: "Which method is used to add an element to the end of an array?",
+    options: ["push()", "pop()", "shift()", "unshift()"],
+    answer: "push()",
+  },
+
+  {
+    question: "Which symbol is used for strict equality in JavaScript?",
+    options: ["=", "==", "===", "!="],
+    answer: "===",
+  },
+
+  {
+    question: "Which method converts a JSON string into a JavaScript object?",
+    options: [
+      "JSON.parse()",
+      "JSON.stringify()",
+      "JSON.convert()",
+      "JSON.object()",
+    ],
+    answer: "JSON.parse()",
+  },
+
+  {
+    question: "Which event occurs when a user clicks an HTML element?",
+    options: ["hover", "click", "change", "submit"],
+    answer: "click",
+  },
+
+  {
+    question: "Which method is used to select an element by its ID?",
+    options: [
+      "querySelector()",
+      "getElementById()",
+      "getElement()",
+      "selectById()",
+    ],
+    answer: "getElementById()",
+  },
+
+  {
+    question:
+      "Which function is used to run code repeatedly after a fixed time interval?",
+    options: ["setTimeout()", "setInterval()", "repeat()", "runEvery()"],
+    answer: "setInterval()",
+  },
 ];
 
 let currentQuestion = 0;
 let score = 0;
+
+let timeLeft = 10;
+let timerInterval;
 
 function showQuestion() {
   const current = questions[currentQuestion];
@@ -46,6 +104,7 @@ function showQuestion() {
     button.innerText = option;
     options.appendChild(button);
   });
+  startTimer();
 }
 
 showQuestion();
@@ -61,9 +120,11 @@ options.addEventListener("click", function (e) {
 });
 
 nextBtn.addEventListener("click", function () {
+  clearInterval(timerInterval);
   const selectedOption = options.querySelector(".selected");
   if (!selectedOption) {
     alert("please select an answer!");
+    startTimer();
     return;
   }
   const current = questions[currentQuestion];
@@ -76,7 +137,7 @@ nextBtn.addEventListener("click", function () {
     selectedOption.classList.add("wrong");
     const allOptions = options.querySelectorAll(".option");
     allOptions.forEach(function (option) {
-      if(option.innerText === current.answer){
+      if (option.innerText === current.answer) {
         option.classList.add("correct");
       }
     });
@@ -90,7 +151,7 @@ nextBtn.addEventListener("click", function () {
   setTimeout(function () {
     currentQuestion++;
     showQuestion();
-  }, 500);
+  }, 700);
 });
 
 function showResult() {
@@ -108,3 +169,25 @@ restartBtn.addEventListener("click", function () {
   document.querySelector(".quiz-header").style.display = "block";
   showQuestion();
 });
+
+function startTimer() {
+  clearInterval(timerInterval);
+
+  timeLeft = 10;
+  timer.innerText = timeLeft;
+
+  timerInterval = setInterval(function () {
+    timeLeft--;
+    timer.innerText = timeLeft;
+
+    if (timeLeft === 0) {
+      clearInterval(timerInterval);
+      if (currentQuestion === questions.length - 1) {
+        showResult();
+        return;
+      }
+      currentQuestion++;
+      showQuestion();
+    }
+  }, 1000);
+}
