@@ -115,3 +115,41 @@ A weather application that fetches real-time weather information using the Open-
 
 
 ---
+
+# 4.🧠 JavaScript Quiz App
+
+A simple interactive Quiz App built using HTML, CSS and JavaScript.
+
+## ✨ Features
+
+- 10 JavaScript questions
+- Dynamic question and option generation
+- Select one answer at a time
+- Correct and wrong answer indication
+- Score calculation
+- 10-second timer for each question
+- Automatic next question when time runs out
+- Progress bar
+- Result screen
+- Restart quiz
+- Prevents moving forward without selecting an answer
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+
+## 📚 What I Learned
+
+- DOM Manipulation
+- Arrays and Objects
+- Event Delegation
+- Dynamic Element Creation
+- `setTimeout()`
+- `setInterval()`
+- `clearInterval()`
+- `classList`
+- Event Handling
+- State Management
+- Conditional Logic
