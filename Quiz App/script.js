@@ -3,7 +3,7 @@ const progress = document.querySelector("#progress");
 const question = document.querySelector("#question");
 const options = document.querySelector("#options");
 const nextBtn = document.querySelector("#nextBtn");
-const scoreDislay = document.querySelector("#score");
+const scoreDisplay = document.querySelector("#score");
 const restartBtn = document.querySelector("#restartBtn");
 const result = document.querySelector("#result");
 
@@ -52,8 +52,6 @@ function showQuestion() {
 showQuestion();
 
 options.addEventListener("click", function (e) {
-  const current = questions[currentQuestion];
-
   if (e.target.classList.contains("option")) {
     const allOptions = options.querySelectorAll(".option");
     allOptions.forEach(function (option) {
@@ -71,7 +69,7 @@ nextBtn.addEventListener("click", function () {
   }
     const current = questions[currentQuestion];
 
-    if (selectedOption.innerText == current.answer) {
+    if (selectedOption.innerText === current.answer) {
       score++;
       console.log(score);
     }
@@ -87,7 +85,7 @@ nextBtn.addEventListener("click", function () {
 function showResult(){
     document.querySelector(".quiz-box").style.display = "none";
     result.style.display = "block";
-    scoreDislay.innerText = `${score}/${questions.length}`
+    scoreDisplay.innerText = `${score}/${questions.length}`
     document.querySelector(".quiz-header").style.display = "none";
 }
 
