@@ -19,9 +19,21 @@ let totalExpense = 0;
 function displayTransaction(){
     transactionList.innerHTML = "";
     transactions.forEach(transaction => {
+        const sign = transaction.type === "income" ? "+" : "-";
+        const transactionClass = transaction.type === "income" ? "income-transaction" : "expense-transaction";
         transactionList.innerHTML += `
-        <p>${transaction.title} - ₹${transaction.amount}</p>
+         <div class="transaction ${transactionClass}">
+                    <div class="transaction-info">
+                        <h3>${transaction.title}</h3>
+                        <p>${transaction.type}</p>
+                    </div>
+                    <div class="transaction-right">
+                        <span class="amount">${sign} ₹${transaction.amount}</span>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
         `;
+        const div = document.querySelector('.transaction');
         if(transaction.type == "income"){
             totalIncome += transaction.amount;
             income.textContent = `₹${totalIncome}`;
@@ -53,3 +65,8 @@ function addTransaction(event){
 transactionForm.addEventListener('submit',addTransaction)
 // addTransactionButton.addEventListener('click',addTransaction)
 
+// const deleteBtn = document.querySelector('.delete-btn');
+
+// deleteBtn.addEventListener('click',function(event){
+//    event.parentElement.remove();
+// })
