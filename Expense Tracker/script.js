@@ -21,7 +21,10 @@ function displayTransaction() {
   let totalExpense = 0;
 
   transactions.forEach((transaction) => {
-    const sign = transaction.type === "income" ? "+" : "-";
+    const sign = 
+    transaction.type === "income" 
+      ? "+" 
+      : "-";
 
     const transactionClass =
       transaction.type === "income"
@@ -67,24 +70,35 @@ function addTransaction(event) {
   };
 
   transactions.push(newTransaction);
+  saveTransactions();
   displayTransaction();
   transactionForm.reset();
 }
 transactionForm.addEventListener("submit", addTransaction);
 
 transactionList.addEventListener("click", function (event) {
-
   if (event.target.classList.contains("delete-btn")) {
     const id = Number(event.target.dataset.id);
 
     transactions = transactions.filter((transaction) => {
       return transaction.id != id;
     });
-
+    saveTransactions();
     displayTransaction();
   }
 });
 
-// function saveTransactions() {
-//     localStorage.setItem("transactions", JSON.stringify(transactions));
-// }
+function saveTransactions(){
+  localStorage.setItem("transactions",JSON.stringify(transactions));
+}
+
+function loadTransactions(){
+  const savedTransactions = localStorage.getItem("transactions");
+
+  if(savedTransactions){
+    transactions = JSON.parse(savedTransactions)
+  }
+  displayTransaction();
+}
+
+loadTransactions()
