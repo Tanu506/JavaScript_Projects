@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>📝 Notes App</h1>
+            <p>Write down your thoughts and ideas.</p>
+        </header>
+
+        <section class="note-form">
+            <input 
+                type="text" 
+                id="noteTitle" 
+                placeholder="Note title"
+            >
+
+            <textarea 
+                id="noteContent" 
+                placeholder="Write your note..."
+            ></textarea>
+
+            <button id="addNoteBtn">Add Note</button>
+        </section>
+
+        <section class="notes-section">
+            <h2>Your Notes</h2>
+
+            <div id="notesContainer" class="notes-container">
+                <!-- Notes will be added here using JavaScript -->
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
