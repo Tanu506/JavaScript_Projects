@@ -23,14 +23,18 @@ function addNote() {
   const noteTitleInput = noteTitle.value;
   const noteContentInput = noteContent.value;
 
-  const noteArray = {
+  if (!noteTitleInput || !noteContentInput) {
+    alert("Please enter valid values");
+  }
+
+  const newNote = {
     id: Date.now(),
     title: noteTitleInput,
     content: noteContentInput,
   };
 
-  notes.push(noteArray);
-  saveNotes()
+  notes.push(newNote);
+  saveNotes();
   displayNote();
   noteTitle.value = "";
   noteContent.value = "";
@@ -50,17 +54,17 @@ notesContainer.addEventListener("click", function (event) {
   }
 });
 
-function saveNotes(){
-  localStorage.setItem("notes",JSON.stringify(notes));
+function saveNotes() {
+  localStorage.setItem("notes", JSON.stringify(notes));
 }
 
-function loadNotes(){
+function loadNotes() {
   const savedNote = localStorage.getItem("notes");
 
-  if(savedNote){
-    notes = JSON.parse(savedNote)
+  if (savedNote) {
+    notes = JSON.parse(savedNote);
   }
-  displayNote()
+  displayNote();
 }
 
-loadNotes()
+loadNotes();
