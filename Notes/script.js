@@ -25,6 +25,7 @@ function addNote() {
 
   if (!noteTitleInput || !noteContentInput) {
     alert("Please enter valid values");
+    return;
   }
 
   const newNote = {
