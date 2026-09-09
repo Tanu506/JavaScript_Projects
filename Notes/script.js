@@ -30,9 +30,10 @@ function addNote() {
   };
 
   notes.push(noteArray);
+  saveNotes()
+  displayNote();
   noteTitle.value = "";
   noteContent.value = "";
-  displayNote();
 }
 
 addNoteBtn.addEventListener("click", addNote);
@@ -44,6 +45,22 @@ notesContainer.addEventListener("click", function (event) {
     notes = notes.filter((n) => {
       return n.id != id;
     });
+    saveNotes();
     displayNote();
   }
 });
+
+function saveNotes(){
+  localStorage.setItem("notes",JSON.stringify(notes));
+}
+
+function loadNotes(){
+  const savedNote = localStorage.getItem("notes");
+
+  if(savedNote){
+    notes = JSON.parse(savedNote)
+  }
+  displayNote()
+}
+
+loadNotes()
